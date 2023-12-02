@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+body {
+  padding: 50px;
+  background-color: #F3F6F6;
+  display: flex;
+}
+
+#root {
+  width: 100%;
+}

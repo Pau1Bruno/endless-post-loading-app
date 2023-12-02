@@ -1,0 +1,47 @@
+.post_container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  background-color: #DBBED8;
+  border-radius: 16px;
+
+  p {
+    height: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .head {
+    width: 30%;
+    margin: auto 0;
+  }
+
+  .body {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: auto 10px;
+
+    a {
+      text-decoration: none;
+      color: black;
+      border: 5px solid #e18d13;
+      border-radius: 8px;
+      padding: 5px;
+      background-color: #f8b24d;
+      height: 40px;
+      transition: all 0.25s ease-in-out;
+
+      &:hover {
+        background-color: #e18d13;
+        scale: 1.1;
+      }
+    }
+
+  }
+}
