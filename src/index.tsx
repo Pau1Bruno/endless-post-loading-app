@@ -8,10 +8,9 @@ import Error from "./pages/error/error";
 import "./global.scss";
 import PostId from "./pages/post-id/post-id";
 
-
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "picasso-test/",
         element: <Root/>,
         errorElement: <Error/>,
     },

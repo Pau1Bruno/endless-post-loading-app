@@ -26,7 +26,7 @@ const PostId = () => {
 
     return (
         <div className={styles.post_id_container}>
-            <Link to={"/"}>
+            <Link to={"picasso-test/"}>
                 {"<-"} Вернуться к списку постов
             </Link>
             <div className={styles.id}>
