@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./PostComponent.module.scss"
+import styles from "./Post.module.scss"
 import {Post} from "../../types/post";
 import {Link} from "react-router-dom";
 

@@ -1,23 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/query'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import thunk from "redux-thunk";
-import { api } from './reducers/apiSlice'
+import {api} from './reducers/apiSlice'
+import {setupListeners} from "@reduxjs/toolkit/query";
 
-export type RootState = {
-    [api.reducerPath]: ReturnType<typeof api.reducer>;
-}
+const rootReducer = combineReducers({
+    [api.reducerPath]:api.reducer
+})
 
 export const store = configureStore({
-    reducer: {
-        // Add the generated reducer as a specific top-level slice
-        [api.reducerPath]: api.reducer,
-    },
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(thunk, api.middleware),
 })
 
-// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
-// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
-setupListeners(store.dispatch)
+setupListeners(store.dispatch);

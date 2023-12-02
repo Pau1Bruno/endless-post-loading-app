@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root/>,
-        errorElement: <Error />,
+        errorElement: <Error/>,
     },
     {
         path: "posts/:postId",
@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
     .render(
         <StrictMode>
             <Provider store={store}>
-                <RouterProvider router={router} />
+                <RouterProvider router={router}/>
             </Provider>
         </StrictMode>
     );
