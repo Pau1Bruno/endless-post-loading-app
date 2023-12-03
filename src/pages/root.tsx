@@ -26,7 +26,7 @@ const Root = () => {
     return (
         <>
             <PostsListComponent posts={allPosts}/>
-            <div ref={lastElement} id={"observer"} style={{background: "red", height: 20}}></div>
+            <div ref={lastElement} id={"observer"} style={{height: 20}}></div>
         </>
     );
 };

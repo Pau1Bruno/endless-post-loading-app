@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useGetPostByIdQuery} from "../../store/reducers/apiSlice";
 import styles from "./post-id.module.scss";
 import {InfinitySpin} from 'react-loader-spinner'
@@ -9,6 +9,7 @@ import Error from "../error/error";
 const PostId = () => {
     const {postId} = useParams();
     const {data: post, isLoading} = useGetPostByIdQuery(postId ? postId : "1");
+    const navigate = useNavigate();
 
     const numberId = Number(postId);
     if (!Boolean(numberId) || numberId < 1 || numberId > 100) {
@@ -26,9 +27,9 @@ const PostId = () => {
 
     return (
         <div className={styles.post_id_container}>
-            <Link to={"picasso-test/"}>
+            <button onClick={() => navigate(-1)}>
                 {"<-"} Вернуться к списку постов
-            </Link>
+            </button>
             <div className={styles.id}>
                 <p>Id: {post?.id}</p>
             </div>

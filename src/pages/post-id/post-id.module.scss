@@ -1,3 +1,11 @@
+.loader {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .post_id_container {
   display: flex;
   flex-direction: column;
@@ -6,7 +14,7 @@
   border-radius: 20px;
   background-color: #d06da1;
 
-  a {
+  button {
     width: fit-content;
     text-decoration: none;
     color: black;
