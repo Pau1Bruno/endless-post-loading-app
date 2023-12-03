@@ -15,7 +15,6 @@ export const api = createApi({
             },
             // Always merge incoming data to the cache entry
             merge: (currentCache, newItems) => {
-                if (currentCache.length === 100) return currentCache;
                 return [...currentCache, ...newItems];
             },
             // Refetch when the page arg changes
@@ -25,9 +24,12 @@ export const api = createApi({
         }),
         getPostById: build.query<Post, string>({
             query: (postId) => `/posts/${postId}`,
-        })
+        }),
+        getJSON: build.query<Post[], void>({
+            query: () => `/posts`,
+        }),
     }),
 });
 
-export const {useGetPostsQuery, useGetPostByIdQuery} = api;
+export const {useGetPostsQuery, useGetPostByIdQuery, useGetJSONQuery} = api;
 

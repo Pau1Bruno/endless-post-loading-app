@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import PostsListComponent from "../widgets/PostsList/PostList";
-import {useGetPostsQuery} from "../store/reducers/apiSlice";
+import {useGetJSONQuery, useGetPostsQuery} from "../store/reducers/apiSlice";
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../features/useTypedSelector";
 import {AppDispatch} from "../store";
@@ -13,13 +13,17 @@ const Root = () => {
     const lastElement = useRef<any>(null);
     const observer = useRef<IntersectionObserver>();
     const {data, isFetching, isLoading} = useGetPostsQuery(offset);
+    const {data: posts} = useGetJSONQuery();
+    const postsCount = posts ? posts.length - 20 : 100000;
+    console.log(postsCount)
+
     const allPosts = data ?? []
 
     useEffect(() => {
-        if (isLoading || isFetching || allPosts.length === 100) return;
+        if (isLoading || isFetching || offset >= postsCount) return;
         if (observer.current) observer.current.disconnect();
         let callback = function (entries: any) {
-            if (entries[0].isIntersecting && offset <= 80) {
+            if (entries[0].isIntersecting) {
                 dispatch(setOffset(offset + 20));
                 return;
             }
@@ -28,7 +32,7 @@ const Root = () => {
         observer.current = new IntersectionObserver(callback);
         observer.current.observe(lastElement.current)
     }, [isFetching]);
-    console.log(offset)
+
     return (
         <>
             <PostsListComponent posts={allPosts}/>
