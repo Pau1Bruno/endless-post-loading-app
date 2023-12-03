@@ -10,7 +10,7 @@ const Root = () => {
     const allPosts = data ?? []
 
     useEffect(() => {
-        if (isLoading || isFetching) return;
+        if (isLoading || isFetching || allPosts.length === 100) return;
         if (observer.current) observer.current.disconnect();
         let callback = function (entries: any) {
             if (entries[0].isIntersecting && offset <= 80) {
