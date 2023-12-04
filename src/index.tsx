@@ -10,7 +10,7 @@ import PostId from "./pages/post-id/post-id";
 
 const router = createBrowserRouter([
     {
-        path: "picasso-test/",
+        path: "endless-post-loading-app/",
         element: <Root/>,
         errorElement: <Error/>,
     },
