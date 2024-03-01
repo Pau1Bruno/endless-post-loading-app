@@ -1,6 +1,6 @@
 {
-  "homepage": "https://pau1bruno.github.io/picasso-test",
-  "name": "picasso-posts",
+  "homepage": "https://pau1bruno.github.io/endless-post-loading-app",
+  "name": "endless-post-loading-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
